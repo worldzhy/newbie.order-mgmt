@@ -7,12 +7,7 @@ import {OrderItemRequestEntity} from './order.entity';
 export class OrderService {
   constructor(private readonly prisma: PrismaService) {}
 
-  async create(params: {
-    paymentMethod: PaymentMethod;
-    items: OrderItemRequestEntity[];
-    note?: string;
-    userId: string;
-  }) {
+  async create(params: {paymentMethod: PaymentMethod; items: OrderItemRequestEntity[]; note?: string; userId: string}) {
     let totalInCents = 0;
     for (const item of params.items) {
       totalInCents += item.priceInCents * (item.quantity || 1);

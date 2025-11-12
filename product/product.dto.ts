@@ -1,7 +1,4 @@
-import {
-  CommonListRequestDto,
-  CommonListResponseDto,
-} from '@framework/common.dto';
+import {CommonListRequestDto, CommonListResponseDto} from '@framework/common.dto';
 import {ApiProperty} from '@nestjs/swagger';
 import {IsNumber, IsOptional, IsString} from 'class-validator';
 

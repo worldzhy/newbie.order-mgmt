@@ -6,11 +6,7 @@ import {WechatWorkflowOrderController} from './wechat-workflow/wechat-workflow.c
 
 @Global()
 @Module({
-  controllers: [
-    OrderController,
-    ProductController,
-    WechatWorkflowOrderController,
-  ],
+  controllers: [OrderController, ProductController, WechatWorkflowOrderController],
   providers: [OrderService],
   exports: [OrderService],
 })

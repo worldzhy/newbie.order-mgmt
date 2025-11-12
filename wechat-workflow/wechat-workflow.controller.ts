@@ -1,18 +1,10 @@
 import {PrismaService} from '@framework/prisma/prisma.service';
 import {Body, Controller, Get, Param, Patch, Post} from '@nestjs/common';
-import {
-  ApiTags,
-  ApiBearerAuth,
-  ApiResponse,
-  ApiOperation,
-} from '@nestjs/swagger';
+import {ApiTags, ApiBearerAuth, ApiResponse, ApiOperation} from '@nestjs/swagger';
 import {GuardByApiKey} from '@microservices/account/security/passport/api-key/api-key.decorator';
 import {OrderService} from '../order.service';
 import {CreateOrderResponseDto, UpdateOrderResponseDto} from '../order.dto';
-import {
-  WechatWorkflowCreateOrderRequestDto,
-  WechatWorkflowUpdateOrderPaidRequestDto,
-} from './wechat-workflow.dto';
+import {WechatWorkflowCreateOrderRequestDto, WechatWorkflowUpdateOrderPaidRequestDto} from './wechat-workflow.dto';
 import {OrderStatus, PaymentMethod} from '@prisma/client';
 
 @ApiTags('Order Management / Wechat Workflow Order')
@@ -55,10 +47,7 @@ export class WechatWorkflowOrderController {
         existingItems.length === body.items.length &&
         existingItems.every((existingItem, index) => {
           const newItem = body.items[index];
-          return (
-            existingItem.skuId === newItem.skuId &&
-            existingItem.quantity === newItem.quantity
-          );
+          return existingItem.skuId === newItem.skuId && existingItem.quantity === newItem.quantity;
         })
       ) {
         // ! Do not return the existing order, because the order id might be invalid.
@@ -77,10 +66,7 @@ export class WechatWorkflowOrderController {
 
   @Patch(':id/paid')
   @ApiResponse({type: UpdateOrderResponseDto})
-  async paid(
-    @Param('id') id: string,
-    @Body() body: WechatWorkflowUpdateOrderPaidRequestDto
-  ) {
+  async paid(@Param('id') id: string, @Body() body: WechatWorkflowUpdateOrderPaidRequestDto) {
     return await this.prisma.order.update({
       where: {id},
       data: {

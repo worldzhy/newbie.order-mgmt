@@ -1,13 +1,4 @@
-import {
-  Body,
-  Controller,
-  Delete,
-  Get,
-  Param,
-  Patch,
-  Post,
-  Query,
-} from '@nestjs/common';
+import {Body, Controller, Delete, Get, Param, Patch, Post, Query} from '@nestjs/common';
 import {ApiTags, ApiBearerAuth, ApiResponse} from '@nestjs/swagger';
 import {PrismaService} from '@framework/prisma/prisma.service';
 import {Prisma} from '@prisma/client';
@@ -54,10 +45,7 @@ export class ProductController {
 
   @Patch(':id')
   @ApiResponse({type: UpdateProductResponseDto})
-  async updateProduct(
-    @Param('id') id: number,
-    @Body() body: UpdateProductRequestDto
-  ) {
+  async updateProduct(@Param('id') id: number, @Body() body: UpdateProductRequestDto) {
     return await this.prisma.product.update({
       where: {id},
       data: body,

@@ -1,15 +1,5 @@
 import {PrismaService} from '@framework/prisma/prisma.service';
-import {
-  Body,
-  Controller,
-  Delete,
-  Get,
-  Param,
-  Patch,
-  Post,
-  Query,
-  Req,
-} from '@nestjs/common';
+import {Body, Controller, Delete, Get, Param, Patch, Post, Query, Req} from '@nestjs/common';
 import {ApiTags, ApiBearerAuth, ApiResponse} from '@nestjs/swagger';
 import {
   CreateOrderRequestDto,
@@ -35,10 +25,7 @@ export class OrderController {
 
   @Post('')
   @ApiResponse({type: CreateOrderResponseDto})
-  async createOrder(
-    @Req() request: Request,
-    @Body() body: CreateOrderRequestDto
-  ) {
+  async createOrder(@Req() request: Request, @Body() body: CreateOrderRequestDto) {
     const accessToken = this.tokenService.getTokenFromHttpRequest(request);
     if (!accessToken) {
       throw new Error('Access token is required');
