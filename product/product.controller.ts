@@ -1,7 +1,7 @@
 import {Body, Controller, Delete, Get, Param, Patch, Post, Query} from '@nestjs/common';
 import {ApiTags, ApiBearerAuth, ApiResponse} from '@nestjs/swagger';
 import {PrismaService} from '@framework/prisma/prisma.service';
-import {Prisma} from '@prisma/client';
+import {Prisma} from '@generated/prisma/client';
 import {
   CreateProductRequestDto,
   CreateProductResponseDto,

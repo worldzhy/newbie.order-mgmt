@@ -5,7 +5,7 @@ import {GuardByApiKey} from '@microservices/account/security/passport/api-key/ap
 import {OrderService} from '../order.service';
 import {CreateOrderResponseDto, UpdateOrderResponseDto} from '../order.dto';
 import {WechatWorkflowCreateOrderRequestDto, WechatWorkflowUpdateOrderPaidRequestDto} from './wechat-workflow.dto';
-import {OrderStatus, PaymentMethod} from '@prisma/client';
+import {OrderStatus, PaymentMethod} from '@generated/prisma/client';
 
 @ApiTags('Order Management / Wechat Workflow Order')
 @ApiBearerAuth()

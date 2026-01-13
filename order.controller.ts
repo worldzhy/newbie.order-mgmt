@@ -11,7 +11,7 @@ import {
 import {OrderService} from './order.service';
 import {TokenService} from '@microservices/account/security/token/token.service';
 import {Request} from 'express';
-import {OrderStatus, Prisma} from '@prisma/client';
+import {OrderStatus, Prisma} from '@generated/prisma/client';
 
 @ApiTags('Order Management')
 @ApiBearerAuth()

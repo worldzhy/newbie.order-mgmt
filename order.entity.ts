@@ -1,5 +1,5 @@
 import {ApiProperty} from '@nestjs/swagger';
-import {OrderStatus, PaymentMethod} from '@prisma/client';
+import {OrderStatus, PaymentMethod} from '@generated/prisma/client';
 import {IsOptional} from 'class-validator';
 
 export class OrderItemRequestEntity {

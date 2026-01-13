@@ -1,6 +1,6 @@
 import {Injectable} from '@nestjs/common';
 import {PrismaService} from '@framework/prisma/prisma.service';
-import {PaymentMethod} from '@prisma/client';
+import {PaymentMethod} from '@generated/prisma/client';
 import {OrderItemRequestEntity} from './order.entity';
 
 @Injectable()

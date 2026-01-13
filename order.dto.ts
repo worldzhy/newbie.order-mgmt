@@ -1,6 +1,6 @@
 import {CommonListRequestDto, CommonListResponseDto} from '@framework/common.dto';
 import {ApiProperty} from '@nestjs/swagger';
-import {OrderStatus, PaymentMethod} from '@prisma/client';
+import {OrderStatus, PaymentMethod} from '@generated/prisma/client';
 import {IsArray, IsIn, IsOptional, IsString} from 'class-validator';
 import {OrderEntity, OrderItemRequestEntity} from './order.entity';
 
